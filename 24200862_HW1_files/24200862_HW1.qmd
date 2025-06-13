@@ -1,0 +1,75 @@
+---
+title: "Homework1"
+subtitle: "STAT40830"
+author: "Priyanka Kaushal (24200862)"
+date: today
+date-format: long
+engine: knitr
+format: html
+editor: visual
+execute:
+  echo: false 
+---
+
+## [Introduction]{style="color: blue;"}
+
+This analysis presents a relationship of [**miles per gallon (mpg)**]{style="color: blue;"} versus [**horsepower (hp)**]{style="color: blue;"}. Understanding this relationship helps assess how engine power impacts fuel efficiency.
+
+#### [1. *Selected Dataset Overview*]{style="color: blue;"}
+
+The R built-in dataset used in this report is [**(mtcars)**]{style="color: blue;"}: *Motor Trend Car Road Tests* - which originates from the 1974 *Motor Trend* US magazine. It contains data on fuel consumption and 10 aspects of automobile design and performance for 32 automobiles models from the 1973–74 period . It consists of 11 variables for each 32 automobile model as shown below.
+
+```{r}
+#| echo: false
+data("mtcars")    #loads dataset
+str(mtcars)       #displays the structure 
+```
+
+#### [2 *Data Summary*]{style="color: blue;"}
+
+Below are a few descriptive statistics of the two main variables used in the graph:
+
+```{r}
+#| echo: false
+
+summary(mtcars[, c("mpg", "hp")])   #displays summary statistics e.g. min, max, median and quartiles
+```
+
+-   The fuel efficiency(mpg) of the vehicles ranges from a minimum of 10.40 to a maximum of 33.90 , with median at 19.20 indicating half of the vehicles have mpg below this value.The mean 20.09 is slightly above the median.
+
+-   The horsepower of the vehicles ranges from a minimum of 52 to a maximum of 335 showing wide variation in engine power, with median at 123 indicating half of the vehicles have mpg below this value.The mean 146.7 is also slightly above the median.
+
+#### [3.*Plot*]{style="color: blue;"}
+
+The scatter plot in @fig-Scatter shows a clear inverse relationship between horsepower and miles per gallon, indicating that as engine power increases, fuel efficiency tends to decrease.
+
+```{r}
+#Load Libraries
+library(ggplot2)
+```
+
+```{r}
+#| label: fig-Scatter
+#| fig-cap: "Relation between Fuel Efficiency and Horsepower"
+#| fig-width: 7
+#| fig-height: 4
+#| echo: false
+
+# plot hp vs mpg to show relation 
+ggplot(mtcars, aes(x = hp, y = mpg)) +
+  geom_point(color = "blue", size = 3) +
+  geom_smooth(method = "lm",formula = y~x, se = TRUE, color = "black", linewidth = 1) +
+  labs(
+    title = "Fuel Efficiency vs Horsepower",
+    x = "Horsepower",
+    y = "Miles Per Gallon"
+  ) +
+  theme_minimal() +
+  theme(
+    panel.border = element_rect(color = "black", fill = NA, linewidth = 1)
+  )
+```
+
+```{r}
+usethis::git_sitrep()
+```
