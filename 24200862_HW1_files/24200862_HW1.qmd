@@ -13,7 +13,7 @@ execute:
 
 ## [Introduction]{style="color: blue;"}
 
-This analysis presents a relationship of [**miles per gallon (mpg)**]{style="color: blue;"} versus [**horsepower (hp)**]{style="color: blue;"}. Understanding this relationship helps assess how engine power impacts fuel efficiency.
+This analysis presents a relationship of [**miles per gallon (mpg)**]{style="color: blue;"} versus [**horsepower (hp)**]{style="color: blue;"}. Understanding this relationship helps assess how engine power impacts fuel efficiency .
 
 #### [1. *Selected Dataset Overview*]{style="color: blue;"}
 
