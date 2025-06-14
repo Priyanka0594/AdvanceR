@@ -73,3 +73,8 @@ ggplot(mtcars, aes(x = hp, y = mpg)) +
 ```{r}
 usethis::git_sitrep()
 ```
+
+```{r}
+install.packages(c("usethis", "cli"))
+
+```
